@@ -1,0 +1,2 @@
+-- Seed data for local development (run after migrations)
+-- Note: auth.users entries must be created via Supabase dashboard or API first

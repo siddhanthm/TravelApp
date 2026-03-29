@@ -1,0 +1,32 @@
+---
+description: Frontend and component patterns
+globs: ["src/components/**/*.tsx", "src/app/**/*.tsx"]
+alwaysApply: true
+---
+
+# Frontend Patterns
+
+## Components
+- Use shadcn/ui primitives from src/components/ui/ as base.
+- Compose domain components in src/components/trips/, hotels/, flights/, places/.
+- No inline styles. Tailwind only.
+- Export one component per file (named export, not default).
+
+## Forms
+- react-hook-form with zodResolver.
+- Use FormField, FormItem, FormLabel, FormControl, FormMessage pattern.
+- Validate on submit, not on blur (better UX for first-time fill).
+
+## Data fetching
+- Use TanStack Query hooks (src/hooks/) in Client Components.
+- Prefer Server Components + direct Supabase server client for initial loads.
+- Invalidate queries after mutations, not manual cache updates (except Realtime).
+
+## Realtime
+- Subscribe via src/hooks/use-realtime.ts.
+- On INSERT/UPDATE/DELETE events, call queryClient.setQueryData() or queryClient.invalidateQueries().
+- Unsubscribe in useEffect cleanup.
+
+## Accessibility
+- All interactive elements have aria labels or visible text.
+- Use Radix UI primitives for keyboard navigation.

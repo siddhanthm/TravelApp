@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx:*)",
+      "Bash(echo $PATH)",
+      "Read(//Users/priyamittal/.nvm/versions/**)",
+      "Read(//Users/priyamittal/.local/bin/**)",
+      "Bash(git add:*)"
+    ]
+  }
+}

@@ -1,0 +1,89 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    /* Surface hierarchy */
+    --surface-container-lowest: #ffffff;
+    --surface: #fbf9f8;
+    --surface-bright: #fbf9f8;
+    --surface-container-low: #f6f3f2;
+    --surface-container: #f0eded;
+    --surface-container-high: #eae8e7;
+    --surface-container-highest: #e4e2e1;
+    --surface-variant: #e4e2e1;
+    --surface-dim: #dcd9d9;
+    --surface-tint: #526349;
+
+    /* Primary (Forest Green) */
+    --primary: #506147;
+    --on-primary: #ffffff;
+    --primary-container: #687a5e;
+    --on-primary-container: #f8ffee;
+    --primary-fixed: #d5e8c7;
+    --primary-fixed-dim: #b9ccad;
+    --on-primary-fixed: #111f0b;
+    --on-primary-fixed-variant: #3b4b33;
+
+    /* Secondary (Terracotta — CTA only) */
+    --secondary: #8d4e2d;
+    --on-secondary: #ffffff;
+    --secondary-container: #fdaa83;
+    --on-secondary-container: #783d1e;
+    --secondary-fixed: #ffdbcc;
+    --secondary-fixed-dim: #ffb693;
+    --on-secondary-fixed: #351000;
+    --on-secondary-fixed-variant: #703718;
+
+    /* Tertiary (Warm Earth) */
+    --tertiary: #655a4b;
+    --on-tertiary: #ffffff;
+    --tertiary-container: #7e7362;
+    --on-tertiary-container: #fffbff;
+    --tertiary-fixed: #f0e0cc;
+    --tertiary-fixed-dim: #d3c4b1;
+    --on-tertiary-fixed: #221a0e;
+    --on-tertiary-fixed-variant: #4f4537;
+
+    /* Error */
+    --error: #ba1a1a;
+    --on-error: #ffffff;
+    --error-container: #ffdad6;
+    --on-error-container: #93000a;
+
+    /* Text */
+    --on-surface: #1b1c1c;
+    --on-surface-variant: #444840;
+    --on-background: #1b1c1c;
+    --background: #fbf9f8;
+
+    /* Borders */
+    --outline: #757870;
+    --outline-variant: #c4c8be;
+
+    /* Inverse */
+    --inverse-surface: #303030;
+    --inverse-on-surface: #f3f0f0;
+    --inverse-primary: #b9ccad;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--on-surface);
+    font-family: 'Manrope', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}

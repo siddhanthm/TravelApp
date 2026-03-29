@@ -1,0 +1,102 @@
+---
+description: Tactile Wanderer design system rules
+globs: ["src/**/*.tsx", "src/**/*.css"]
+alwaysApply: true
+---
+
+# The Tactile Wanderer Design System
+
+## Creative North Star
+"The Digital Field Journal" — premium linen-bound journal aesthetic. Editorial layouts, asymmetric breathing room, organic warmth. NOT a utility spreadsheet.
+
+## Strict Rules (never violate)
+
+### No-Line Rule
+Never use `border` or `border-b` for sectioning. Use background color shifts (different surface tiers) or negative space instead.
+
+### No-Black Rule
+Never use `#000000`, `black`, or `text-black`. All dark text uses `text-on-surface` (#1b1c1c) or `text-on-surface-variant`.
+
+### No-Sharp-Corners Rule
+Every interactive element (buttons, inputs, cards, modals) uses at least `rounded-xl` (0.75rem). Chips use `rounded-full`.
+
+### No-Dividers Rule
+Never use `<hr>` or `border-b` between list items. Increase spacing (`gap-3` -> `gap-4`) instead.
+
+### Secondary = CTA Only
+`bg-secondary` and `text-secondary` are reserved for actionable CTAs ("Book Now", "Add Trip", primary action buttons). Never use for decoration, section headings, or informational content.
+
+### Tonal Elevation
+Depth from surface color contrast, not shadows. Layer: surface -> surface-container-low -> surface-container -> surface-container-high.
+Shadows only for floating elements: `shadow-ambient` (32px blur, 8px Y, 4% opacity).
+
+### Glassmorphism for Floating Elements
+Nav bars and overlays: `bg-surface/80 backdrop-blur-[20px]`.
+
+## Color Token Usage
+```
+bg-surface                   base page
+bg-surface-container-lowest  lifted cards
+bg-surface-container-low     content areas
+bg-surface-container         mid containers
+bg-surface-container-high    input backgrounds
+bg-surface-container-highest inactive chips
+text-on-surface              primary text
+text-on-surface-variant      muted/secondary text
+bg-primary                   primary actions (non-CTA)
+bg-secondary                 CTA buttons only
+bg-secondary-fixed           active chips
+border-outline-variant/15    ghost borders (15% opacity)
+```
+
+## Typography
+- `font-headline` (Epilogue): display text, destination names, page titles
+- `font-body` (Manrope): body text, descriptions
+- `font-label` (Manrope): metadata, dates, prices — use `tracking-[0.05rem]`
+
+## Component Patterns
+
+### Primary Buttons (non-CTA)
+```
+rounded-xl px-6 py-3 font-body font-medium
+bg-gradient-to-br from-primary to-primary-container
+text-on-primary
+hover:from-primary-container hover:to-primary transition-all
+active:scale-[0.98]
+```
+
+### CTA Buttons
+```
+rounded-xl px-6 py-3 font-body font-medium
+bg-secondary text-on-secondary
+hover:opacity-90 active:scale-[0.98]
+```
+
+### Cards
+```
+bg-surface-container-lowest rounded-xl p-4 shadow-card
+```
+No borders, no dividers inside.
+
+### Input Fields
+```
+bg-surface-container-high rounded-xl px-4 py-3
+focus:ring-2 focus:ring-primary-fixed/50 focus:outline-none
+text-on-surface placeholder:text-on-surface-variant
+```
+No border on default state. Ghost border at 15% if needed: `border border-outline-variant/15`.
+
+### Selection Chips
+```
+rounded-full px-4 py-1.5 font-label text-sm
+inactive: bg-surface-container-highest text-on-surface-variant
+active:   bg-secondary-fixed text-on-secondary-fixed
+```
+
+### Floating Navigation
+```
+fixed bottom-6 left-1/2 -translate-x-1/2
+bg-surface/80 backdrop-blur-[20px]
+rounded-xl shadow-ambient
+px-6 py-3 flex gap-6
+```
